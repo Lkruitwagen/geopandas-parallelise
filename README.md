@@ -10,7 +10,7 @@ Buffer operations are commonly used when looking for spatial proximity between a
 
 ### Spatial Join
 
-The addition of [PyGEOS](https://pygeos.readthedocs.io/en/latest/) to [GeoPandas 0.8](https://geopandas.org/index.html) makes STRtree querying much faster, but with geometries more complex than points, the `intersects`,`contains`, and `within` operations take much longer. This repo uses PyGEOS to first assemble and query an STRTree, and then parallelises the actual spatial operation.
+The addition of [PyGEOS](https://pygeos.readthedocs.io/en/latest/) to [GeoPandas 0.8](https://geopandas.org/index.html) makes STRtree querying much faster, but with geometries more complex than points, the `intersects`,`contains`, and `within` operations take much longer. This repo uses PyGEOS to first assemble and query an STRTree, and then parallelises the actual spatial operations. The parallelisation uses [Numpy recarrays](https://numpy.org/doc/stable/reference/generated/numpy.recarray.html) in [multiprocessing.shared_memory](https://docs.python.org/3/library/multiprocessing.shared_memory.html) to allow multiple workers to perform operations with shared objects.
 
 ## Useage
 
