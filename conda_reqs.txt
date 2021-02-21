@@ -1,0 +1,4 @@
+ipykernel==5.3.4
+geopandas==0.8.2
+pygeos==0.9.0
+descartes==1.1.0
